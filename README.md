@@ -53,8 +53,8 @@ Copia la plantilla de configuración y llena tus credenciales:
 cp config.example.yaml config.yaml
 \`\`\`
 
-\`config.yaml\` está en \`.gitignore\` y nunca se sube al repo — ahí van
-tus credenciales reales.
+"Copia la plantilla y llena tus credenciales — `config.yaml` está en
+`.gitignore` y nunca se sube al repo."
 
 ## Activar Adzuna (recomendado para vacantes en México)
 

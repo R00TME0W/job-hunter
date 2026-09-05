@@ -1,0 +1,180 @@
+# ==========================================================
+# Configuración de job-hunter — PLANTILLA
+# ==========================================================
+# Copia este archivo como config.yaml y llena tus credenciales.
+# config.yaml está en .gitignore, así que nunca se sube al repo.
+#
+#   cp config.example.yaml config.yaml
+#
+# ==========================================================
+
+# --- Fuentes de datos ---
+# Todas son APIs oficiales / públicas, no scraping de sitios que
+# lo prohíben en sus términos de servicio.
+sources:
+  remotive:
+    enabled: true
+    # https://remotive.com/api/remote-jobs  (gratis, sin API key)
+    search_terms:
+      - "SOC analyst"
+      - "cybersecurity"
+      - "security analyst"
+      - "analista de ciberseguridad"
+      - "analista de seguridad"
+
+  arbeitnow:
+    enabled: true
+    # https://www.arbeitnow.com/api/job-board-api
+    search_terms:
+      - "SOC analyst"
+      - "cybersecurity"
+      - "security analyst"
+      - "analista de ciberseguridad"
+      - "analista de seguridad"
+
+  adzuna:
+    enabled: true
+    # https://developer.adzuna.com/signup (gratis)
+    country: "mx"
+    app_id: "TU_APP_ID_AQUI"
+    app_key: "TU_APP_KEY_AQUI"
+    search_terms:
+     - "SOC analyst"
+     - "cybersecurity"
+     - "security analyst"
+     - "analista de ciberseguridad"
+     - "analista de seguridad"
+    locations:
+    - "Hermosillo"
+    - "Ciudad de Mexico"
+    - "Monterrey"
+    - "Guadalajara"
+    - "Queretaro"
+    - "Tijuana"
+    - "Mexicali"
+    - "Puebla"
+
+  linkedin:
+    enabled: true
+
+  indeed:
+    enabled: true
+
+  occ:
+    enabled: true
+
+  computrabajo:
+    enabled: true
+    # radio de búsqueda
+    where:
+    - "Hermosillo"
+    - "Ciudad de Mexico"
+    - "Monterrey"
+    - "Guadalajara"
+    - "Queretaro"
+    - "Tijuana"
+    - "Mexicali"
+    - "Puebla"
+
+# --- Notificación por Telegram ---
+# 1. Crea un bot con @BotFather en Telegram, te da un token.
+# 2. Mándale un mensaje a tu bot y visita:
+#    https://api.telegram.org/bot<TOKEN>/getUpdates
+#    para obtener tu chat_id.
+telegram:
+  enabled: true
+  bot_token: "TU_BOT_TOKEN_AQUI"
+  chat_id: "TU_CHAT_ID_AQUI"
+
+# --- Umbral mínimo para que una vacante aparezca en el reporte ---
+min_score: 40
+
+# --- Exclusiones duras: si el título matchea, la vacante se descarta
+# de plano sin importar el resto del scoring ---
+hard_excludes:
+  - "ventas puerta a puerta"
+  - "telemarketing"
+  - "vendedor"
+  - "sales representative"
+  - "sales executive"
+  - "telemarketing"
+  - "call center"
+  - "asesor de ventas"
+  - "ejecutivo de ventas"
+  - "seguridad social"
+  - "seguridad e higiene"
+  - "seguridad patrimonial"
+  - "seguridad industrial"
+  - "seguridad laboral"
+
+# --- Tabla de puntos ---
+# Cada regla busca la palabra/frase (normalizada, sin acentos,
+# minúsculas, con límites de palabra) en el título + descripción
+# de la vacante.
+scoring:
+  positive:
+     # Position
+    - term: "soc analyst"
+      points: 30
+    - term: "security analyst"
+      points: 25
+    - term: "cybersecurity analyst"
+      points: 30
+    - term: "analista de ciberseguridad"
+      points: 30
+    - term: "information security"
+      points: 25
+    - term: "seguridad de la informacion"
+      points: 25
+    - term: "cyber security"
+      points: 20
+
+    # Área
+    - term: "cybersecurity"
+      points: 20
+    - term: "ciberseguridad"
+      points: 20
+    - term: "networking"
+      points: 15
+    - term: "redes"
+      points: 15
+    - term: "linux"
+      points: 10
+    - term: "siem"
+      points: 10
+
+    # Modality
+    - term: "remote"
+      points: 20
+    - term: "remoto"
+      points: 20
+    - term: "work from home"
+      points: 20
+    - term: "home office"
+      points: 20
+
+    # Ubication
+    - term: "hermosillo"
+      points: 20
+
+    # level
+    - term: "junior"
+      points: 10
+    - term: "entry level"
+      points: 10
+    - term: "trainee"
+      points: 10
+  negative:
+    - term: "ventas"
+      points: -30
+    - term: "sales"
+      points: -30
+    - term: "call center"
+      points: -30
+    - term: "atencion al cliente"
+      points: -20
+    - term: "customer service"
+      points: -20
+
+# --- Salario mínimo (MXN mensual) para el bono de +5 ---
+min_salary_mxn: 20000
