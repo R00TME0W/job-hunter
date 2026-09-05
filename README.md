@@ -10,10 +10,10 @@ pública (LinkedIn, Indeed, OCC, Computrabajo).
 ## Capturas
 
 **Salida en terminal:**
-![Terminal ejecutando job-hunter](docs/screenshots/terminal-output.png)
+![Terminal ejecutando job-hunter](screenshots/terminal-output.png)
 
 **Notificaciones en Telegram:**
-![Notificaciones de Telegram](docs/screenshots/telegram-notifications.png)
+![Notificaciones de Telegram](screenshots/telegram-notifications.png)
 
 ## Fuentes incluidas
 
