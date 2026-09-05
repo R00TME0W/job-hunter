@@ -14,7 +14,7 @@ pública (LinkedIn, Indeed, OCC, Computrabajo).
 
 **Notificaciones en Telegram:**
 
-![Notificaciones de Telegram](screenshots/telegram-notification.png)
+![Notificaciones de Telegram](screenshots/telegram-notifications.png)
 
 ## Fuentes incluidas
 
