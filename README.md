@@ -13,7 +13,8 @@ pública (LinkedIn, Indeed, OCC, Computrabajo).
 ![Terminal ejecutando job-hunter](screenshots/terminal-output.png)
 
 **Notificaciones en Telegram:**
-![Notificaciones de Telegram](screenshots/telegram-notifications.png)
+
+![Notificaciones de Telegram](screenshots/telegram-notification.png)
 
 ## Fuentes incluidas
 
